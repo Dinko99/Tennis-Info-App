@@ -1,0 +1,16 @@
+:root {
+  //FONTS
+  --ff-primary: 'Poppins', sans-serif;
+
+  //COLORS
+  --text-color-primary: #000;
+  --text-color-secondary: #fff;
+
+  //GRADIENTS
+  --gradient-atp: linear-gradient(to right, #1488cc, #2b32b2);
+  --gradient-wta: linear-gradient(to right, #cc2b5e, #753a88);
+  --gradient-home: linear-gradient(to right, #009fff, #ec2f4b);
+
+  //TRANSITIONS
+  --transition-primary: 0.1s all linear;
+}
