@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@600&family=Poppins:wght@300&display=swap');
 
 * {
   box-sizing: border-box;
@@ -9,4 +9,5 @@
 body {
   font-family: var(--ff-primary);
   color: var(--text-color-primary);
+  position: relative;
 }

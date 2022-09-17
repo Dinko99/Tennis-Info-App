@@ -2,4 +2,12 @@
 
 a {
   text-decoration: none;
+  cursor: pointer;
+  color: var(--text-color-primary);
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
 }
