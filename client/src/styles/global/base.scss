@@ -15,3 +15,13 @@ ul {
 li {
   cursor: pointer;
 }
+
+.positive {
+  font-weight: 600;
+  color: var(--color-positive);
+}
+
+.negative {
+  font-weight: 600;
+  color: var(--color-negative);
+}

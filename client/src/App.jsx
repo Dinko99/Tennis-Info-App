@@ -17,10 +17,6 @@ function App() {
     closeDropdown();
   }, [location.pathname]);
 
-  const openDropdown = () => {
-    setIsDropdownOpen(true);
-  };
-
   const closeDropdown = () => {
     setIsDropdownOpen(false);
   };
@@ -28,6 +24,12 @@ function App() {
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
+  if (isDropdownOpen) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'visible';
+  }
 
   return (
     <>
