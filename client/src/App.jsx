@@ -6,13 +6,40 @@ import Atp from './pages/Atp';
 import Wta from './pages/Wta';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
+import Dropdown from './components/Dropdown';
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   let location = useLocation();
+
+  useEffect(() => {
+    closeDropdown();
+  }, [location.pathname]);
+
+  const openDropdown = () => {
+    setIsDropdownOpen(true);
+  };
+
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <>
-      {location.pathname === '/' ? null : <Navbar />}
+      {location.pathname === '/' ? null : (
+        <Navbar toggleDropdown={toggleDropdown} />
+      )}
+      {location.pathname !== '/' && (
+        <Dropdown
+          isDropdownOpen={isDropdownOpen}
+          closeDropdown={closeDropdown}
+        />
+      )}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/atp' element={<Atp />} />

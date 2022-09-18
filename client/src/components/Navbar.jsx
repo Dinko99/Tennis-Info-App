@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FiSearch } from 'react-icons/fi';
 import { IoMdArrowDropdown } from 'react-icons/io';
 
-const Navbar = () => {
+const Navbar = ({ toggleDropdown }) => {
   return (
     <nav>
       <div className='nav-wrapper'>
@@ -19,7 +19,7 @@ const Navbar = () => {
           <li>Rankings</li>
           <li>Tournaments</li>
           <li>Players</li>
-          <li>
+          <li onClick={toggleDropdown}>
             More <IoMdArrowDropdown />
           </li>
         </ul>
