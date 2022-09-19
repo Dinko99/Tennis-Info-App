@@ -6,6 +6,7 @@
 
   main {
     width: 90%;
+    min-height: 130vh;
     margin-inline: auto;
     background-color: var(--text-color-secondary);
     display: flex;
@@ -18,13 +19,19 @@
     .rankings-filter {
       padding: 1.5rem 3rem;
       display: flex;
+      align-items: center;
       gap: 15px;
 
       select {
         padding: 5px;
-        text-transform: uppercase;
+        text-transform: capitalize;
         border: var(--border-light);
         border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .refresh-icon {
+        font-size: 20px;
         cursor: pointer;
       }
     }

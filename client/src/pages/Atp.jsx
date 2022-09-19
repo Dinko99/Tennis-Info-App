@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react';
 import { atpOptions } from '../utils/fetchData';
 import RankingsHeader from '../components/RankingsHeader';
 import RankingsRow from '../components/RankingsRow';
-import RankingsFilter from '../components/RankingsFilter';
+import Filters from '../components/Filters';
 
 const Atp = () => {
   const [data, setData] = useState([]);
   const [rankings, setRankings] = useState([]);
   const [rankingsRange, setRankingsRange] = useState('top 100');
+  const [filterCountry, setFilterCountry] = useState('All Countries');
   const top100 = data.slice(0, 100);
   const top200 = data.slice(100, 200);
   const top300 = data.slice(200, 300);
@@ -41,11 +42,12 @@ const Atp = () => {
   return (
     <div className='atp'>
       <main>
-        <RankingsFilter
-          rankingsRange={rankingsRange}
+        <Filters
           setRankingsRange={setRankingsRange}
-          rankings={rankings}
+          setRankings={setRankings}
           data={data}
+          filterCountry={filterCountry}
+          setFilterCountry={setFilterCountry}
         />
         <RankingsHeader />
         {rankings.map((player) => {
