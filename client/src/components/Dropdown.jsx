@@ -9,7 +9,7 @@ import {
 } from 'react-icons/ai';
 import { ImListNumbered } from 'react-icons/im';
 
-const Dropdown = ({ isDropdownOpen, closeDropdown }) => {
+const Dropdown = ({ isDropdownOpen, closeDropdown, setTab }) => {
   return (
     <>
       <div
@@ -33,13 +33,13 @@ const Dropdown = ({ isDropdownOpen, closeDropdown }) => {
               <AiOutlineWoman className='icon' /> WTA
             </li>
           </Link>
-          <li>
+          <li onClick={() => setTab('Rankings')}>
             <ImListNumbered className='icon' /> Rankings
           </li>
-          <li>
+          <li onClick={() => setTab('Tournaments')}>
             <AiFillTrophy className='icon' /> Tournaments
           </li>
-          <li>
+          <li onClick={() => setTab('Players')}>
             <IoIosMan className='icon' /> Players
           </li>
         </ul>

@@ -5,7 +5,7 @@ import RankingsHeader from '../components/RankingsHeader';
 import RankingsRow from '../components/RankingsRow';
 import Filters from '../components/Filters';
 
-const Atp = () => {
+const Atp = ({ tab }) => {
   const [data, setData] = useState([]);
   const [rankings, setRankings] = useState([]);
   const [rankingsRange, setRankingsRange] = useState('top 100');
@@ -41,24 +41,38 @@ const Atp = () => {
     }
   }, [rankingsRange]);
 
-  return (
-    <div className='atp'>
-      <main>
-        <Filters
-          setRankingsRange={setRankingsRange}
-          setRankings={setRankings}
-          data={data}
-          filterCountry={filterCountry}
-          setFilterCountry={setFilterCountry}
-          rankingsRange={rankingsRange}
-        />
-        <RankingsHeader />
-        {rankings.map((player) => {
-          return <RankingsRow player={player} key={player.id} />;
-        })}
-      </main>
-    </div>
-  );
+  if (tab === 'Rankings') {
+    return (
+      <div className='atp'>
+        <main>
+          <Filters
+            setRankingsRange={setRankingsRange}
+            setRankings={setRankings}
+            data={data}
+            filterCountry={filterCountry}
+            setFilterCountry={setFilterCountry}
+            rankingsRange={rankingsRange}
+          />
+          <RankingsHeader />
+          {rankings.map((player) => {
+            return <RankingsRow player={player} key={player.id} />;
+          })}
+        </main>
+      </div>
+    );
+  } else if (tab === 'Tournaments') {
+    return (
+      <div className='atp'>
+        <div style={{ textAlign: 'center' }}>tournaments</div>
+      </div>
+    );
+  } else if (tab === 'Players') {
+    return (
+      <div className='atp'>
+        <div style={{ textAlign: 'center' }}>players</div>
+      </div>
+    );
+  }
 };
 
 export default Atp;

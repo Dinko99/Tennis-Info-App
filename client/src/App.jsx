@@ -11,11 +11,12 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [tab, setTab] = useState('Rankings');
   let location = useLocation();
 
   useEffect(() => {
     closeDropdown();
-  }, [location.pathname]);
+  }, [location.pathname, tab]);
 
   const closeDropdown = () => {
     setIsDropdownOpen(false);
@@ -34,17 +35,22 @@ function App() {
   return (
     <>
       {location.pathname === '/' ? null : (
-        <Navbar toggleDropdown={toggleDropdown} location={location} />
+        <Navbar
+          toggleDropdown={toggleDropdown}
+          location={location}
+          setTab={setTab}
+        />
       )}
       {location.pathname !== '/' && (
         <Dropdown
           isDropdownOpen={isDropdownOpen}
           closeDropdown={closeDropdown}
+          setTab={setTab}
         />
       )}
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/atp' element={<Atp />} />
+        <Route path='/atp' element={<Atp tab={tab} />} />
         <Route path='/wta' element={<Wta />} />
       </Routes>
     </>
