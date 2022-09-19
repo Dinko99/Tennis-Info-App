@@ -1,59 +1,56 @@
 import '../styles/Atp.scss';
 import { useState, useEffect } from 'react';
 import { atpOptions } from '../utils/fetchData';
+import RankingsHeader from '../components/RankingsHeader';
+import RankingsRow from '../components/RankingsRow';
+import RankingsFilter from '../components/RankingsFilter';
 
 const Atp = () => {
   const [data, setData] = useState([]);
   const [rankings, setRankings] = useState([]);
+  const [rankingsRange, setRankingsRange] = useState('top 100');
+  const top100 = data.slice(0, 100);
+  const top200 = data.slice(100, 200);
+  const top300 = data.slice(200, 300);
+
+  const fetchAtpRankings = () => {
+    fetch('https://tennis-live-data.p.rapidapi.com/rankings/ATP', atpOptions)
+      .then((response) => response.json())
+      .then((response) => {
+        const rankingsData = response.results.rankings;
+        setData(rankingsData);
+        setRankings(rankingsData.slice(0, 100));
+      })
+      .catch((err) => console.error(err));
+  };
 
   useEffect(() => {
-    const fetchAtpRankings = () => {
-      fetch('https://tennis-live-data.p.rapidapi.com/rankings/ATP', atpOptions)
-        .then((response) => response.json())
-        .then((response) => {
-          const rankingsData = response.results.rankings;
-          setData(rankingsData);
-        })
-        .catch((err) => console.error(err));
-    };
-
     fetchAtpRankings();
   }, []);
+
+  useEffect(() => {
+    if (rankingsRange === 'top 100') {
+      setRankings(top100);
+    } else if (rankingsRange === 'top 200') {
+      setRankings(top200);
+    } else {
+      setRankings(top300);
+    }
+  }, [rankingsRange]);
 
   return (
     <div className='atp'>
       <main>
-        <div className='atp-rankings-header'>
-          <p>Rank</p>
-          <p>Player</p>
-          <p>Ranking Points</p>
-          <p>Rank Diff</p>
-          <p>Country</p>
-        </div>
-        {data
-          .filter((player) => player.ranking_points > 100)
-          .slice(0, 100)
-          .map((player) => {
-            return (
-              <div className='atp-rankings-row' key={player.id}>
-                <p>{player.ranking}</p>
-                <p>{player.full_name}</p>
-                <p>{player.ranking_points}</p>
-                <p
-                  className={
-                    parseInt(player.movement) < 0 ? 'negative' : 'positive'
-                  }
-                  style={{
-                    color: player.movement === '' && '#000',
-                    fontWeight: player.movement === '' && '400',
-                  }}
-                >
-                  {player.movement === '' ? '00' : player.movement}
-                </p>
-                <p>{player.country}</p>
-              </div>
-            );
-          })}
+        <RankingsFilter
+          rankingsRange={rankingsRange}
+          setRankingsRange={setRankingsRange}
+          rankings={rankings}
+          data={data}
+        />
+        <RankingsHeader />
+        {rankings.map((player) => {
+          return <RankingsRow player={player} key={player.id} />;
+        })}
       </main>
     </div>
   );

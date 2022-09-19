@@ -13,11 +13,30 @@
     gap: 12px;
     border-radius: 5px;
     padding-bottom: 15px;
+    position: relative;
+
+    .rankings-filter {
+      padding: 1.5rem 3rem;
+      display: flex;
+      gap: 15px;
+
+      select {
+        padding: 5px;
+        text-transform: uppercase;
+        border: var(--border-light);
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    }
 
     .atp-rankings-header {
       padding: 15px 0;
       font-size: 14px;
-      border-bottom: 1px solid rgb(184, 181, 181);
+      border-bottom: var(--border-light);
+      border-top: var(--border-light);
+      // position: fixed;
+      z-index: 10;
+      background-color: var(--text-color-secondary);
     }
 
     .atp-rankings-header,
