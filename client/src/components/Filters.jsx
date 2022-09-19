@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ResetRankings from './ResetRankings';
 import RankingFilter from './RankingFilter';
 import CountryFilter from './CountryFilter';
@@ -9,6 +9,7 @@ const Filters = ({
   setFilterCountry,
   filterCountry,
   setRankings,
+  rankingsRange,
 }) => {
   let countries = [];
   const countryFilter = data.filter(
@@ -22,6 +23,7 @@ const Filters = ({
 
   const handleRankingsRange = (e) => {
     setRankingsRange(e.target.value);
+    setFilterCountry('All Countries');
   };
 
   const handleFilterCountry = (e) => {
@@ -38,12 +40,19 @@ const Filters = ({
 
   return (
     <div className='rankings-filter'>
-      <RankingFilter handleRankingsRange={handleRankingsRange} />
+      <RankingFilter
+        handleRankingsRange={handleRankingsRange}
+        rankingsRange={rankingsRange}
+      />
       <CountryFilter
         handleFilterCountry={handleFilterCountry}
         countries={countries}
+        filterCountry={filterCountry}
       />
-      <ResetRankings />
+      <ResetRankings
+        setFilterCountry={setFilterCountry}
+        setRankingsRange={setRankingsRange}
+      />
     </div>
   );
 };

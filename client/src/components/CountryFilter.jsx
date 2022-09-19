@@ -1,7 +1,7 @@
-const CountryFilter = ({ countries, handleFilterCountry }) => {
+const CountryFilter = ({ countries, handleFilterCountry, filterCountry }) => {
   return (
-    <select onClick={handleFilterCountry}>
-      <option defaultValue='All Countries'>All Countries</option>
+    <select value={filterCountry} onChange={handleFilterCountry}>
+      <option value='All Countries'>All Countries</option>
       {countries
         .filter((country) => country !== '')
         .sort()

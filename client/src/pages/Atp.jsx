@@ -30,7 +30,9 @@ const Atp = () => {
   }, []);
 
   useEffect(() => {
-    if (rankingsRange === 'top 100') {
+    if (rankingsRange === 'all') {
+      setRankings(data);
+    } else if (rankingsRange === 'top 100') {
       setRankings(top100);
     } else if (rankingsRange === 'top 200') {
       setRankings(top200);
@@ -48,6 +50,7 @@ const Atp = () => {
           data={data}
           filterCountry={filterCountry}
           setFilterCountry={setFilterCountry}
+          rankingsRange={rankingsRange}
         />
         <RankingsHeader />
         {rankings.map((player) => {

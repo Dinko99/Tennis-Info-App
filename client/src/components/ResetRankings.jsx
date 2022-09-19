@@ -1,14 +1,12 @@
 import { BiRefresh } from 'react-icons/bi';
-import { useNavigate } from 'react-router-dom';
 
-const ResetRankings = () => {
-  const navigate = useNavigate();
-
-  const refreshPage = () => {
-    navigate(0);
+const ResetRankings = ({ setFilterCountry, setRankingsRange }) => {
+  const refreshFilters = () => {
+    setFilterCountry('All Countries');
+    setRankingsRange('top 100');
   };
 
-  return <BiRefresh className='refresh-icon' onClick={refreshPage} />;
+  return <BiRefresh className='refresh-icon' onClick={refreshFilters} />;
 };
 
 export default ResetRankings;
