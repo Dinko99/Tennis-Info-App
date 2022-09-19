@@ -34,7 +34,7 @@ function App() {
   return (
     <>
       {location.pathname === '/' ? null : (
-        <Navbar toggleDropdown={toggleDropdown} />
+        <Navbar toggleDropdown={toggleDropdown} location={location} />
       )}
       {location.pathname !== '/' && (
         <Dropdown

@@ -4,17 +4,20 @@ import { Link } from 'react-router-dom';
 import { FiSearch } from 'react-icons/fi';
 import { IoMdArrowDropdown } from 'react-icons/io';
 
-const Navbar = ({ toggleDropdown }) => {
+const Navbar = ({ toggleDropdown, location }) => {
   return (
     <nav>
       <div className='nav-wrapper'>
         <div className='logo'>
           <img src={Logo} alt='Logo' />
-          <h1>TennisInfo</h1>
+          <Link to='/'>
+            <h1>TennisInfo</h1>
+          </Link>
         </div>
         <ul>
           <li>
-            <Link to='/'>Home</Link>
+            {(location.pathname === '/wta' && <Link to='/atp'>ATP</Link>) ||
+              (location.pathname === '/atp' && <Link to='/wta'>WTA</Link>)}
           </li>
           <li>Rankings</li>
           <li>Tournaments</li>
