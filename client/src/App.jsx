@@ -18,6 +18,10 @@ function App() {
     closeDropdown();
   }, [location.pathname, tab]);
 
+  useEffect(() => {
+    setTab('Rankings');
+  }, [location.pathname]);
+
   const closeDropdown = () => {
     setIsDropdownOpen(false);
   };

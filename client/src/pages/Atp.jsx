@@ -4,6 +4,7 @@ import { atpOptions } from '../utils/fetchData';
 import RankingsHeader from '../components/RankingsHeader';
 import RankingsRow from '../components/RankingsRow';
 import Filters from '../components/Filters';
+import AtpTournaments from '../components/AtpTournaments';
 
 const Atp = ({ tab }) => {
   const [data, setData] = useState([]);
@@ -63,7 +64,9 @@ const Atp = ({ tab }) => {
   } else if (tab === 'Tournaments') {
     return (
       <div className='atp'>
-        <div style={{ textAlign: 'center' }}>tournaments</div>
+        <main>
+          <AtpTournaments />
+        </main>
       </div>
     );
   } else if (tab === 'Players') {

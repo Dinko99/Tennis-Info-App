@@ -53,5 +53,52 @@
       text-align: center;
       align-items: center;
     }
+
+    .tournaments {
+      margin-inline: auto;
+      width: 85%;
+      padding: 20px;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      .tournament {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 35% repeat(3, 1fr);
+        padding: 20px;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+          rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        border: 1px solid var(--color-atp);
+        border-radius: 5px;
+
+        h3 {
+          font-weight: 300;
+        }
+
+        .tournament-name {
+          h2 {
+            color: var(--color-atp);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .atp {
+    main {
+      .tournaments {
+        width: 60%;
+        text-align: center;
+        .tournament {
+          grid-template-columns: 1fr;
+          gap: 5px;
+          place-items: center;
+        }
+      }
+    }
   }
 }
