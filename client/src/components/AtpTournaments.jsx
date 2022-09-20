@@ -23,6 +23,7 @@ const AtpTournaments = () => {
 
   return (
     <div className='tournaments'>
+      <h1>List of tournaments in year 2022</h1>
       {tournaments.map((tournament) => {
         const surface = tournament.Surface;
         const surfaceArr = surface.split(' ');

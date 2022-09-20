@@ -16,11 +16,7 @@ const Navbar = ({ toggleDropdown, location, setTab }) => {
         </div>
         <ul>
           <li>
-            {(location.pathname === '/wta' && (
-              <Link to='/atp' style={{ color: '#1778B5', fontWeight: '600' }}>
-                ATP
-              </Link>
-            )) ||
+            {(location.pathname === '/wta' && <Link to='/atp'>ATP</Link>) ||
               (location.pathname === '/atp' && <Link to='/wta'>WTA</Link>)}
           </li>
           <li onClick={() => setTab('Rankings')}>Rankings</li>
@@ -30,7 +26,7 @@ const Navbar = ({ toggleDropdown, location, setTab }) => {
             More <IoMdArrowDropdown />
           </li>
         </ul>
-        <FiSearch className='search-icon' />
+        <FiSearch className='search-icon' onClick={() => setTab('Players')} />
       </div>
     </nav>
   );
