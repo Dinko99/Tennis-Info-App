@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FiSearch } from 'react-icons/fi';
 import { IoMdArrowDropdown } from 'react-icons/io';
 
-const Navbar = ({ toggleDropdown, location, setTab }) => {
+const Navbar = ({ toggleDropdown, location }) => {
   return (
     <nav>
       <div className='nav-wrapper'>
@@ -19,14 +19,20 @@ const Navbar = ({ toggleDropdown, location, setTab }) => {
             {(location.pathname === '/wta' && <Link to='/atp'>ATP</Link>) ||
               (location.pathname === '/atp' && <Link to='/wta'>WTA</Link>)}
           </li>
-          <li onClick={() => setTab('Rankings')}>Rankings</li>
-          <li onClick={() => setTab('Tournaments')}>Tournaments</li>
-          <li onClick={() => setTab('Players')}>Players</li>
+          <li>
+            <Link to='/atp'>Rankings</Link>
+          </li>
+          <li>
+            <Link to='atp/tournaments'>Tournaments</Link>
+          </li>
+          <li>
+            <Link to='/atp/players'>Players</Link>
+          </li>
           <li onClick={toggleDropdown}>
             More <IoMdArrowDropdown />
           </li>
         </ul>
-        <FiSearch className='search-icon' onClick={() => setTab('Players')} />
+        <FiSearch className='search-icon' />
       </div>
     </nav>
   );

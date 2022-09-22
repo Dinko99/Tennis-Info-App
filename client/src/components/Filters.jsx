@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import ResetRankings from './ResetRankings';
 import RankingFilter from './RankingFilter';
 import CountryFilter from './CountryFilter';

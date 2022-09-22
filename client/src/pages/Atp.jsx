@@ -4,10 +4,8 @@ import { atpOptions } from '../utils/fetchData';
 import RankingsHeader from '../components/RankingsHeader';
 import RankingsRow from '../components/RankingsRow';
 import Filters from '../components/Filters';
-import AtpTournaments from '../components/AtpTournaments';
-import Players from '../components/Players';
 
-const Atp = ({ tab }) => {
+const Atp = () => {
   const [data, setData] = useState([]);
   const [rankings, setRankings] = useState([]);
   const [rankingsRange, setRankingsRange] = useState('top 100');
@@ -43,42 +41,24 @@ const Atp = ({ tab }) => {
     }
   }, [rankingsRange]);
 
-  if (tab === 'Rankings') {
-    return (
-      <div className='atp'>
-        <main>
-          <Filters
-            setRankingsRange={setRankingsRange}
-            setRankings={setRankings}
-            data={data}
-            filterCountry={filterCountry}
-            setFilterCountry={setFilterCountry}
-            rankingsRange={rankingsRange}
-          />
-          <RankingsHeader />
-          {rankings.map((player) => {
-            return <RankingsRow player={player} key={player.id} />;
-          })}
-        </main>
-      </div>
-    );
-  } else if (tab === 'Tournaments') {
-    return (
-      <div className='atp'>
-        <main>
-          <AtpTournaments />
-        </main>
-      </div>
-    );
-  } else if (tab === 'Players') {
-    return (
-      <div className='atp'>
-        <main>
-          <Players />
-        </main>
-      </div>
-    );
-  }
+  return (
+    <div className='atp'>
+      <main>
+        <Filters
+          setRankingsRange={setRankingsRange}
+          setRankings={setRankings}
+          data={data}
+          filterCountry={filterCountry}
+          setFilterCountry={setFilterCountry}
+          rankingsRange={rankingsRange}
+        />
+        <RankingsHeader />
+        {rankings.map((player) => {
+          return <RankingsRow player={player} key={player.id} />;
+        })}
+      </main>
+    </div>
+  );
 };
 
 export default Atp;
