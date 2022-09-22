@@ -89,6 +89,9 @@
       margin-top: 3rem;
       width: 80%;
       margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      // gap: 20px;
 
       form {
         position: relative;
@@ -124,6 +127,25 @@
 
         .search-button {
           font-size: 2.5rem;
+        }
+      }
+
+      .searched-players {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        font-size: 1.5rem;
+      }
+
+      a {
+        padding: 10px;
+        border-bottom: var(--border-light);
+        transition: var(--transition-default);
+
+        &:hover {
+          box-shadow: 1px 1px #53a7ea, 2px 2px #53a7ea, 3px 3px #53a7ea;
+          transform: translateX(-3px);
         }
       }
     }
