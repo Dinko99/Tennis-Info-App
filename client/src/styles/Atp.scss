@@ -1,21 +1,11 @@
-.atp {
+.atp,
+.wta {
   min-height: 100vh;
   width: 100%;
   padding: 10rem 0;
   background: var(--gradient-atp);
 
   main {
-    width: 90%;
-    min-height: 130vh;
-    margin-inline: auto;
-    background-color: var(--text-color-secondary);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    border-radius: 5px;
-    padding-bottom: 15px;
-    position: relative;
-
     .rankings-filter {
       padding: 1.5rem 3rem;
       display: flex;
@@ -68,10 +58,7 @@
         align-items: center;
         grid-template-columns: 35% repeat(3, 1fr);
         padding: 20px;
-        // box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-        //   rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
         border-bottom: 1px solid var(--color-atp);
-        // border-radius: 5px;
 
         h3 {
           font-weight: 300;
@@ -148,6 +135,17 @@
           transform: translateX(-3px);
         }
       }
+
+      .wta-searched-player {
+        padding: 10px;
+        border-bottom: var(--border-light);
+        transition: var(--transition-default);
+
+        &:hover {
+          box-shadow: 1px 1px #753a88, 2px 2px #753a88, 3px 3px #753a88;
+          transform: translateX(-3px);
+        }
+      }
     }
   }
 
@@ -179,7 +177,8 @@
 }
 
 @media screen and (max-width: 860px) {
-  .atp {
+  .atp,
+  .wta {
     main {
       .tournaments {
         width: 60%;

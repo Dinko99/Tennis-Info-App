@@ -1,5 +1,18 @@
 // Global Styles
 
+main {
+  width: 90%;
+  min-height: 130vh;
+  margin-inline: auto;
+  background-color: var(--text-color-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 5px;
+  padding-bottom: 15px;
+  position: relative;
+}
+
 a {
   text-decoration: none;
   cursor: pointer;
@@ -24,4 +37,8 @@ li {
 .negative {
   font-weight: 600;
   color: var(--color-negative);
+}
+
+.none {
+  display: none;
 }

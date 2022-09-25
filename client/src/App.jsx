@@ -11,9 +11,13 @@ import { useState, useEffect } from 'react';
 import Player from './pages/Player';
 import Tournaments from './pages/Tournaments';
 import Players from './pages/Players';
+import WtaPlayers from './pages/WtaPlayers';
+import WtaTournaments from './pages/WtaTournaments';
+import WtaPlayer from './pages/WtaPlayer';
 
 function App() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isAtp, setIsAtp] = useState(true);
   let location = useLocation();
 
   useEffect(() => {
@@ -37,12 +41,19 @@ function App() {
   return (
     <>
       {location.pathname === '/' ? null : (
-        <Navbar toggleDropdown={toggleDropdown} location={location} />
+        <Navbar
+          toggleDropdown={toggleDropdown}
+          location={location}
+          isAtp={isAtp}
+          setIsAtp={setIsAtp}
+        />
       )}
       {location.pathname !== '/' && (
         <Dropdown
           isDropdownOpen={isDropdownOpen}
           closeDropdown={closeDropdown}
+          isAtp={isAtp}
+          setIsAtp={setIsAtp}
         />
       )}
       <Routes>
@@ -50,8 +61,11 @@ function App() {
         <Route path='/atp' element={<Atp />} />
         <Route exact path='/atp/tournaments' element={<Tournaments />} />
         <Route exact path='/atp/players' element={<Players />} />
-        <Route path='/wta' element={<Wta />} />
         <Route path='atp/:id' element={<Player />} />
+        <Route path='/wta' element={<Wta />} />
+        <Route exact path='/wta/tournaments' element={<WtaTournaments />} />
+        <Route exact path='/wta/players' element={<WtaPlayers />} />
+        <Route path='wta/:id' element={<WtaPlayer />} />
       </Routes>
     </>
   );
