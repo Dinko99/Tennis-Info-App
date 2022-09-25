@@ -40,7 +40,9 @@ const Navbar = ({ toggleDropdown, isAtp, setIsAtp }) => {
             More <IoMdArrowDropdown />
           </li>
         </ul>
-        <FiSearch className='search-icon' />
+        <Link style={{ marginLeft: 'auto' }}>
+          <FiSearch className='search-icon' />
+        </Link>
       </div>
     </nav>
   );
