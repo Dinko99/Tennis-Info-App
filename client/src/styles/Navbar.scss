@@ -53,11 +53,11 @@ nav {
   }
 }
 
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 770px) {
   nav {
     .nav-wrapper {
       ul {
-        li:not(li:first-child):not(li:last-child) {
+        li:not(li:last-child) {
           display: none;
         }
 

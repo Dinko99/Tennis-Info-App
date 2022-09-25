@@ -16,8 +16,10 @@ const Navbar = ({ toggleDropdown, location }) => {
         </div>
         <ul>
           <li>
-            {(location.pathname === '/wta' && <Link to='/atp'>ATP</Link>) ||
-              (location.pathname === '/atp' && <Link to='/wta'>WTA</Link>)}
+            <Link to='/atp'>ATP</Link>
+          </li>
+          <li>
+            <Link to='/wta'>WTA</Link>
           </li>
           <li>
             <Link to='/atp'>Rankings</Link>

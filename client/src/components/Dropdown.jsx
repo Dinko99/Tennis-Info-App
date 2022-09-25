@@ -33,21 +33,21 @@ const Dropdown = ({ isDropdownOpen, closeDropdown }) => {
               <AiOutlineWoman className='icon' /> WTA
             </li>
           </Link>
-          <li>
-            <Link to='/atp'>
+          <Link to='/atp'>
+            <li>
               <ImListNumbered className='icon' /> Rankings
-            </Link>
-          </li>
-          <li>
-            <Link to='/atp/tournaments'>
+            </li>
+          </Link>
+          <Link to='/atp/tournaments'>
+            <li>
               <AiFillTrophy className='icon' /> Tournaments
-            </Link>
-          </li>
-          <li>
-            <Link to='/atp/players'>
+            </li>
+          </Link>
+          <Link to='/atp/players'>
+            <li>
               <IoIosMan className='icon' /> Players
-            </Link>
-          </li>
+            </li>
+          </Link>
         </ul>
       </div>
     </>

@@ -21,15 +21,20 @@ const Player = () => {
   }, []);
   return (
     <div className='atp'>
-      <main>
-        <div className='player'>
+      <div className='player'>
+        <div className='player-header'>
           <h1>{item.full_name}</h1>
           <h2>{item.country}</h2>
-          <p>{item.ranking}</p>
-          <p>{item.ranking_points}</p>
-          <p>{item.race_ranking}</p>
         </div>
-      </main>
+        <div className='player-info'>
+          <p>Rank: {item.ranking}</p>
+          <p>Rank Points: {item.ranking_points}</p>
+          <p>Race Rank: {item.race_ranking}</p>
+          <p>Race Points: {item.race_points}</p>
+          <p>Rank Movement: {item.ranking_movement}</p>
+          <p>Race Movement: {item.race_movement}</p>
+        </div>
+      </div>
     </div>
   );
 };
