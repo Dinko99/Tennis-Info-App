@@ -42,7 +42,10 @@ const WtaPlayers = () => {
               value={search}
               onChange={(e) => handleSearch(e.target.value)}
             ></input>
-            <div className='search-button-bcg'>
+            <div
+              className='search-button-bcg'
+              style={{ backgroundColor: '#753a88' }}
+            >
               <FiSearch className='search-button' />
             </div>
           </form>
