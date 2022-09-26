@@ -27,8 +27,6 @@ const AtpTournaments = () => {
         <div className='tournaments'>
           <h1>List of tournaments in year 2022</h1>
           {tournaments.map((tournament) => {
-            const surface = tournament.Surface;
-
             return (
               <div className='tournament' key={tournament.ID}>
                 <div className='tournament-name'>
